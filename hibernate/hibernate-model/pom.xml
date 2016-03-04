@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>hibernate</artifactId>
+    <groupId>nl.topicus</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>hibernate-model</artifactId>
+  <packaging>jar</packaging>
+
+  <name>hibernate-model</name>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>nl.topicus</groupId>
+      <artifactId>hibernate-environment</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- The standard annotations we use in the model, JPA and Bean Validation -->
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.1-api</artifactId>
+      <version>${hibernate.jpa21.api.version}</version>
+    </dependency>
+
+    <!-- We also use some proprietary Hibernate annotations -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
+      <optional>true</optional>
+    </dependency>
+
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          <systemPropertyVariables>
+            <java.util.logging.config.file>src/test/logging.properties</java.util.logging.config.file>
+          </systemPropertyVariables>
+          <suiteXmlFiles>
+            <suiteXmlFile>src/test/AllTests.tng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+          <skip>false</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+</project>

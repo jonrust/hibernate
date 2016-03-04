@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="AllTests - examples">
+
+    <!--<method-selectors>-->
+        <!--<method-selector>-->
+            <!--<selector-class name="org.jpwh.shared.util.DatabaseTestMethodSelector"/>-->
+        <!--</method-selector>-->
+    <!--</method-selectors>-->
+
+    <test name="Hello World">
+        <packages>
+            <package name="nl.topicus.model"/>
+        </packages>
+    </test>
+
+
+
+</suite>
